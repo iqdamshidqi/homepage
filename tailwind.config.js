@@ -8,19 +8,28 @@ export default {
     extend: {
       colors: {
         notion: {
-          bg: "#FAFAFA",
-          surface: "#FFFFFF",
-          sidebar: "#F7F7F5",
-          sidebarHover: "#EFEFEF",
-          border: "#E9E9E7",
-          divider: "#EBECED",
-          text: "#37352F",
-          textMuted: "#787774",
-          textLight: "#9B9A97",
-          calloutBg: "#F1F1EF",
-          hoverBg: "rgba(55, 53, 47, 0.04)",
-          selectBg: "rgba(55, 53, 47, 0.08)",
-          // Pastel Tag Colors (Notion style)
+          bg: "#FFFFFF",
+          sidebar: "#F9F8F7",
+          modal: "#FFFFFF",
+          popover: "#FFFFFF",
+          input: "rgba(242, 241, 238, 0.6)",
+          border: "rgba(50, 48, 44, 0.1)",
+          borderButton: "rgba(50, 48, 44, 0.15)",
+          borderCell: "#E9E9E1",
+          primary: "#2C2C2B",
+          secondary: "#8E8B86",
+          muted: "rgba(70, 68, 64, 0.45)",
+          icon: "#A8A49C",
+          iconPrimary: "#383836",
+          iconSecondary: "#8E8B86",
+          blue: "#2383E2",
+          blueHover: "#0077D4",
+          red: "#EB5757",
+          orange: "#DAA340",
+          calloutBg: "#F2F1EE",
+          hoverBg: "rgba(50, 48, 44, 0.05)",
+          selectBg: "rgba(50, 48, 44, 0.1)",
+          // Notion Kit Pastel Badge Colors
           badge: {
             grayBg: "#F1F1EF",
             grayText: "#37352F",
@@ -50,16 +59,13 @@ export default {
           'BlinkMacSystemFont',
           '"Segoe UI"',
           'Roboto',
-          'Oxygen',
-          'Ubuntu',
-          'Cantarell',
           'sans-serif'
         ]
       },
       boxShadow: {
-        'notion': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'notion-card': '0 1px 3px 0 rgba(15, 15, 15, 0.05), 0 0 0 1px rgba(15, 15, 15, 0.08)',
-        'notion-card-hover': '0 4px 12px 0 rgba(15, 15, 15, 0.08), 0 0 0 1px rgba(15, 15, 15, 0.12)'
+        'notion': '0 0 0 1px rgba(35, 131, 226, 0.57), 0 0 0 2px rgba(35, 131, 226, 0.35)',
+        'notion-card': '0 1px 3px 0 rgba(15, 15, 15, 0.05), 0 0 0 1px rgba(50, 48, 44, 0.1)',
+        'notion-card-hover': '0px 8px 12px 0px rgba(25, 25, 25, 0.04), 0px 2px 6px 0px rgba(25, 25, 25, 0.04), 0px 0px 0px 1px rgba(35, 131, 226, 0.4)'
       }
     },
   },

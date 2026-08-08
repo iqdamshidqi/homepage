@@ -5,13 +5,13 @@
 @layer base {
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #37352F;
-    background-color: #FAFAFA;
+    color: #2C2C2B;
+    background-color: #FFFFFF;
     -webkit-font-smoothing: antialiased;
   }
 }
 
-/* Custom Scrollbar for Notion aesthetic */
+/* Notion Kit Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -22,12 +22,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E1E1DE;
+  background: rgba(70, 68, 64, 0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C7C7C3;
+  background: rgba(70, 68, 64, 0.35);
 }
 
 /* Notion Code block style */
