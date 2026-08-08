@@ -22,17 +22,17 @@ export const pagesData = {
       },
       {
         "platform": "LinkedIn",
-        "url": "https://linkedin.com/in/iqdamshidqi",
+        "url": "https://www.linkedin.com/in/iqdam-shidqi-817535282/",
         "icon": "Linkedin"
       },
       {
         "platform": "Email",
-        "url": "mailto:iqdamshidqi@example.com",
+        "url": "mailto:iqdamshidqiali@gmail.com",
         "icon": "Mail"
       },
       {
         "platform": "Kaggle",
-        "url": "https://kaggle.com/iqdamshidqi",
+        "url": "https://www.kaggle.com/iqdamshidqiali",
         "icon": "Award"
       },
       {
@@ -329,7 +329,7 @@ export const pagesData = {
             "subtitle": "Automated Portfolio Optimization & VaR Engine",
             "category": "Finance & Quant",
             "coverImage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-            "description": "ini terkait kcaobcwqbsknoxanssaxb\n\n** project overview**",
+            "description": "ini terkait kcaobcwqbsknoxanssaxb\n\n**project overview**\n\n|iqdam|shidqi|\n|-----|------|\n|iqdam|shidqi|\n|303010|dnqonxin|\n\n$$Iqdam$$",
             "tags": [
               {
                 "name": "Python",

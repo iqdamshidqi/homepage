@@ -98,6 +98,47 @@ function localDataApiPlugin() {
           res.end('Method Not Allowed')
         }
       })
+
+      // Image Upload Middleware
+      server.middlewares.use('/api/upload-image', (req, res) => {
+        if (req.method === 'POST') {
+          let body = ''
+          req.on('data', chunk => { body += chunk })
+          req.on('end', () => {
+            try {
+              const { filename, base64 } = JSON.parse(body)
+              if (!filename || !base64) throw new Error('Missing filename or base64 data')
+
+              // Remove the data URL prefix (e.g., data:image/png;base64,)
+              const base64Data = base64.replace(/^data:image\/\w+;base64,/, "")
+              
+              const imgDir = path.resolve(__dirname, 'public/images')
+              if (!fs.existsSync(imgDir)) {
+                fs.mkdirSync(imgDir, { recursive: true })
+              }
+
+              // Save the file
+              const filePath = path.join(imgDir, filename)
+              fs.writeFileSync(filePath, base64Data, 'base64')
+
+              res.statusCode = 200;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ 
+                success: true, 
+                message: 'Image uploaded successfully',
+                imageUrl: `/homepage/images/${filename}`
+              }))
+            } catch (err) {
+              res.statusCode = 500
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ success: false, error: err.message }))
+            }
+          })
+        } else {
+          res.statusCode = 405
+          res.end('Method Not Allowed')
+        }
+      })
     }
   }
 }

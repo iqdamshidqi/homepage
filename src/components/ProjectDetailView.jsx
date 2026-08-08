@@ -1,17 +1,61 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Folder, ExternalLink, Github, FileText } from 'lucide-react';
+import { ArrowLeft, Calendar, Folder, ExternalLink, Github, FileText, Image as ImageIcon, Loader2 } from 'lucide-react';
 import NotionTag from './NotionTag';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import 'katex/dist/katex.min.css';
 
 export default function ProjectDetailView({ project, onBack, isEditing, onUpdateProject }) {
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const fileInputRef = useRef(null);
+
   if (!project) return null;
 
   const handleChange = (field, value) => {
     if (onUpdateProject) {
       onUpdateProject({ ...project, [field]: value });
     }
+  };
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setIsUploadingImage(true);
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+      try {
+        const base64Data = reader.result;
+        const response = await fetch('/api/upload-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            filename: `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`,
+            base64: base64Data,
+          }),
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          // insert image markdown at the end
+          const imageMarkdown = `\n![${file.name}](${result.imageUrl})\n`;
+          handleChange('description', (project.description || '') + imageMarkdown);
+        } else {
+          alert('Failed to upload image: ' + result.error);
+        }
+      } catch (err) {
+        alert('Upload error: ' + err.message);
+      } finally {
+        setIsUploadingImage(false);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -119,14 +163,55 @@ export default function ProjectDetailView({ project, onBack, isEditing, onUpdate
           Project Overview
         </h2>
         {isEditing ? (
-          <textarea
-            value={project.description || ''}
-            onChange={(e) => handleChange('description', e.target.value)}
-            placeholder="Write your project overview here... (Markdown supported)"
-            className="w-full min-h-[150px] px-3 py-2 border border-[#E9E9E1] rounded bg-white leading-relaxed resize-y focus:outline-none focus:ring-1 focus:ring-[#2383E2] transition-colors font-mono text-sm"
-          />
+          <div className="flex flex-col space-y-2">
+            <textarea
+              value={project.description || ''}
+              onChange={(e) => handleChange('description', e.target.value)}
+              placeholder="Write your project overview here... (Markdown, LaTeX with $$...$$, code blocks supported)"
+              className="w-full min-h-[150px] px-3 py-2 border border-[#E9E9E1] rounded bg-white leading-relaxed resize-y focus:outline-none focus:ring-1 focus:ring-[#2383E2] transition-colors font-mono text-sm"
+            />
+            <div className="flex justify-end">
+              <input 
+                type="file" 
+                ref={fileInputRef}
+                accept="image/*" 
+                className="hidden" 
+                onChange={handleImageUpload} 
+              />
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={isUploadingImage}
+                className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md border border-[#E9E9E1] text-[#5F5E5B] hover:text-[#2C2C2B] hover:bg-[#F9F8F7] font-medium transition-colors text-xs disabled:opacity-50"
+              >
+                {isUploadingImage ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <ImageIcon className="w-3.5 h-3.5" />}
+                <span>Upload Image</span>
+              </button>
+            </div>
+          </div>
         ) : (
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown 
+            remarkPlugins={[remarkGfm, remarkMath]}
+            rehypePlugins={[rehypeKatex]}
+            components={{
+              code({node, inline, className, children, ...props}) {
+                const match = /language-(\w+)/.exec(className || '')
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={vscDarkPlus}
+                    language={match[1]}
+                    PreTag="div"
+                    {...props}
+                  >
+                    {String(children).replace(/\n$/, '')}
+                  </SyntaxHighlighter>
+                ) : (
+                  <code className={`${className || ''} bg-[#F2F1EE] text-[#EB5757] px-1 py-0.5 rounded text-[0.9em] font-mono`} {...props}>
+                    {children}
+                  </code>
+                )
+              }
+            }}
+          >
             {project.description || 'No description provided.'}
           </ReactMarkdown>
         )}
