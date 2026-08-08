@@ -26,7 +26,7 @@ export default function App() {
   });
 
   // Page-level metadata
-  const [pageMeta] = useState({
+  const pageMeta = {
     home: {
       title: pagesData.home.title,
       subtitle: pagesData.home.subtitle,
@@ -44,7 +44,7 @@ export default function App() {
       categories: pagesData.projects.categories,
       allTags: pagesData.projects.allTags,
     }
-  });
+  };
 
   // === Navigation State ===
   const [activeTab, setActiveTab] = useState('home'); // 'home' | 'projects'
