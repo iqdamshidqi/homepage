@@ -11,8 +11,7 @@ const categoryEmojiMap = {
   "Finance & Quant": "📈",
   "Marketing Analytics": "🎯",
   "Bioinformatics": "🧬",
-  "Data Warehouse & ETL": "🏗️",
-  "Dashboards & Viz": "📊",
+  "AI Product": "🤖",
 };
 
 export default function Header({ 

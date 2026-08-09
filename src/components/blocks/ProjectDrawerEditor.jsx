@@ -7,8 +7,7 @@ const defaultCategories = [
   "Finance & Quant",
   "Marketing Analytics",
   "Bioinformatics",
-  "Data Warehouse & ETL",
-  "Dashboards & Viz"
+  "AI Product"
 ];
 
 const availableBadgeColors = ['blue', 'purple', 'green', 'orange', 'yellow', 'red', 'pink', 'brown', 'gray'];

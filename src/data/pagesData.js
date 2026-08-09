@@ -31,11 +31,6 @@ export const pagesData = {
         "icon": "Mail"
       },
       {
-        "platform": "Kaggle",
-        "url": "https://www.kaggle.com/iqdamshidqiali",
-        "icon": "Award"
-      },
-      {
         "platform": "Threads",
         "url": "https://threads.net/@iqdamshidqi",
         "icon": "AtSign"
@@ -146,11 +141,7 @@ export const pagesData = {
                 "color": "blue"
               },
               {
-                "name": "QuantLib & PyPortfolioOpt",
-                "color": "purple"
-              },
-              {
-                "name": "Time Series (ARIMA, Prophet)",
+                "name": "Time Series",
                 "color": "green"
               },
               {
@@ -264,10 +255,6 @@ export const pagesData = {
               {
                 "name": "React.js & Tailwind CSS",
                 "color": "blue"
-              },
-              {
-                "name": "Plotly & D3.js",
-                "color": "green"
               }
             ]
           }
@@ -299,8 +286,7 @@ export const pagesData = {
       "Finance & Quant",
       "Marketing Analytics",
       "Bioinformatics",
-      "Data Warehouse & ETL",
-      "Dashboards & Viz"
+      "AI Product"
     ],
     "allTags": [
       "Python",
@@ -329,7 +315,7 @@ export const pagesData = {
             "subtitle": "Automated Portfolio Optimization & VaR Engine",
             "category": "Finance & Quant",
             "coverImage": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
-            "description": "ini terkait kcaobcwqbsknoxanssaxb\n\n**project overview**\n\n|iqdam|shidqi|\n|-----|------|\n|iqdam|shidqi|\n|303010|dnqonxin|\n\n$$Iqdam$$",
+            "description": "ini terkait kcaobcwqbsknoxanssaxb\n\n**project overview**\n\n`iqdam`\n#Iqdam\n\n|iqdam|shidqi|\n|-----|------|\n|iqdam|shidqi|\n|303010|dnqonxin|\n\n$$Iqdam$$",
             "tags": [
               {
                 "name": "Python",
@@ -350,9 +336,9 @@ export const pagesData = {
             ],
             "githubUrl": "https://github.com/iqdamshidqi/portfolio-quant-engine",
             "demoUrl": "https://portfolio-quant-engine.streamlit.app",
+            "paperUrl": "",
             "date": "2024",
-            "pdfUrl": "/homepage/pdfs/1786198551291-notasi-contoh.pdf",
-            "_blockId": "proj-1"
+            "pdfUrl": "/homepage/pdfs/1786198551291-notasi-contoh.pdf"
           }
         }
       },

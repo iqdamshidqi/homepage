@@ -3,17 +3,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Home, 
   FolderKanban, 
-  ChevronDown, 
   X, 
   TrendingUp, 
   Target, 
   Dna, 
-  Database, 
-  PieChart, 
   Layers,
   ExternalLink,
   ChevronRight,
   Eye,
+  Bot,
   Github,
   Linkedin,
   Mail,
@@ -26,8 +24,7 @@ const categoryIconMap = {
   "Finance & Quant": TrendingUp,
   "Marketing Analytics": Target,
   "Bioinformatics": Dna,
-  "Data Warehouse & ETL": Database,
-  "Dashboards & Viz": PieChart,
+  "AI Product": Bot,
 };
 
 const socialIconMap = {
@@ -68,7 +65,6 @@ export default function Sidebar({
           </div>
 
           <div className="flex items-center space-x-1">
-            <ChevronDown className="w-3.5 h-3.5 text-[#8E8B86] group-hover:text-[#2C2C2B]" />
             <button
               onClick={onCloseMobile}
               className="md:hidden p-1 rounded hover:bg-[#2C2C2B]/10 text-[#8E8B86]"

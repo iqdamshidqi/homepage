@@ -128,7 +128,7 @@ export default function App() {
           content: {
             skillData: {
               groupTitle: 'New Skill Group',
-              skills: [{ name: 'React', color: 'blue' }]
+              skills: []
             }
           }
         };
