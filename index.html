@@ -36,7 +36,15 @@
     <!-- ============ DINDING FOTO ============
          Foto dibaca dari assets/photos/photo-01.jpg … photo-12.jpg.
          Selama file belum ada, tile menampilkan teks dari CV (figcaption). -->
-    <section class="wall" aria-label="Highlights">
+    <section class="wall" aria-labelledby="hero-title">
+      <!-- Layout hero mengikuti template: gradien radial gelap, judul besar uppercase
+           di kiri bawah. Dinding foto bergerak samar di belakang; tiap tile mengikuti rasio fotonya. -->
+      <div class="wall__shade" aria-hidden="true"></div>
+      <div class="wall__hero">
+        <div class="container">
+          <h1 class="wall__title" id="hero-title" data-anim="fade-up">PORTOFOLIO: IQDAM SHIDQI</h1>
+        </div>
+      </div>
       <div class="wall__row" data-anim="parallax" data-speed="0.09">
         <div class="wall__track" data-anim="marquee" data-duration="60">
           <figure class="tile"><img src="assets/photos/photo-01.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Institut Teknologi Sepuluh Nopember</span><span class="tile__title">Data Science Student</span></figcaption></figure>
@@ -63,29 +71,18 @@
       </div>
     </section>
 
-    <!-- ============ RINGKASAN + COUNTER ============ -->
-    <section class="about">
-      <div class="container">
-        <p class="about__text" data-anim="split">I am an active Data Science student at Sepuluh Nopember Institute of Technology with a strong passion for data science, data analysis, machine learning, and IT solutions. My expertise in data analysis is supported by experience as a community service assistant and participant in data science competitions, focusing on data visualization, complex formula application, and machine learning techniques. Additionally, my involvement in SCC and DSI has sharpened my skills in teamwork, event organization, financial oversight, and managing external relations. With my passion for data, I am eager to unlock my potential in Data Science, where I can further develop my technical expertise and provide valuable insights.</p>
+    <!-- ============ ABOUT (layout "who" dari template) ============ -->
+    <section class="section who">
+      <div class="container who__wrap">
+        <div class="who__left"><div class="label">About me</div></div>
+        <div class="who__right">
+          <p class="about__text" data-anim="split">I am an active Data Science student at Sepuluh Nopember Institute of Technology with a strong passion for data science, data analysis, machine learning, and IT solutions. My expertise in data analysis is supported by experience as a community service assistant and participant in data science competitions, focusing on data visualization, complex formula application, and machine learning techniques. Additionally, my involvement in SCC and DSI has sharpened my skills in teamwork, event organization, financial oversight, and managing external relations. With my passion for data, I am eager to unlock my potential in Data Science, where I can further develop my technical expertise and provide valuable insights.</p>
 
-        <!-- Angka dihitung dari CV: 3 campus projects, 3 awards, 2 certifications -->
-        <div class="stats" data-anim="stagger">
-          <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">project</div></div>
-          <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">award</div></div>
-          <div class="stats__item"><div class="counter" data-anim="count" data-to="2">0</div><div class="stats__label">certification</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ INTERESTS (reel: kotak membesar saat discroll) ============ -->
-    <section class="reel" aria-label="Interests">
-      <div class="reel__inner">
-        <div class="reel__box" data-anim="reel">
-          <div class="reel__content">
-            <div class="label">Interests</div>
-            <ul class="reel__list">
-              <li>Data Science</li><li>Data Analytics</li><li>Machine Learning</li><li>Business</li><li>SDGs</li><li>Economics</li><li>Renewable Energy</li>
-            </ul>
+          <!-- Angka dihitung dari CV: 3 campus projects, 3 awards, 2 certifications -->
+          <div class="stats" data-anim="stagger">
+            <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">project</div></div>
+            <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">award</div></div>
+            <div class="stats__item"><div class="counter" data-anim="count" data-to="2">0</div><div class="stats__label">certification</div></div>
           </div>
         </div>
       </div>
@@ -114,27 +111,19 @@
               <article class="entry" data-anim="fade-left">
                 <div class="entry__head"><h2 class="entry__org">INSTITUT TEKNOLOGI SEPULUH NOPEMBER</h2><span class="entry__meta">Surabaya, Indonesia</span></div>
                 <div class="entry__sub"><span class="entry__role">Data Science Student</span><span class="entry__date">Expected May 2027</span></div>
-                <div class="facts" data-anim="stagger">
-                  <div class="fact"><span class="text-small">Major / Minor</span><span class="fact__value">Major in Computational Science and Data Science; Minor in Business and Management</span></div>
-                  <div class="fact"><span class="text-small">Cumulative IP</span><span class="fact__value">3.49/4.00</span></div>
-                  <div class="fact"><span class="text-small">Relevant Areas</span><span class="fact__value">Data Analysis, Data Science, Statistics.</span></div>
+                <div class="facts">
+                  <p>Major in Computational Science and Data Science; Minor in Business and Management</p>
+                  <p><span class="text-black fw-500">Cumulative IP:</span> 3.49/4.00</p>
+                  <p><span class="text-black fw-500">Relevant Areas:</span> Data Analysis, Data Science, Statistics.</p>
                 </div>
               </article>
             </div>
-            <div class="skills">
-              <span class="text-small text-black fw-500">Technical Skills</span>
-              <div class="tags" data-anim="stagger">
-                <span class="tag">Python</span><span class="tag">R</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Matplotlib</span><span class="tag">Tableau</span><span class="tag">Seaborn</span><span class="tag">ETL</span><span class="tag">ELT</span><span class="tag">Sklearn</span>
-              </div>
-            </div>
-          </section>
 
-          <!-- PROJECT (Campus Projects di CV) -->
-          <section class="cv-section" id="project" data-title="Project">
-            <div class="label">Project</div>
+            <!-- Campus Projects -->
+            <div class="label">Campus Projects</div>
             <div class="entries">
               <article class="entry" data-anim="fade-left">
-                <div class="entry__head"><h2 class="entry__org">DATA STRUCTURE AND ALGORITHM – ITS</h2><span class="entry__date">July 2025 - Present</span></div>
+                <div class="entry__head"><h3 class="entry__org">DATA STRUCTURE AND ALGORITHM – ITS</h3><span class="entry__date">July 2025 - Present</span></div>
                 <div class="entry__sub"><span class="entry__role">Teaching Assistant</span></div>
                 <ul class="entry__list">
                   <li>Developed syllabi, lecture materials, and other relevant teaching resources for open-source programming.</li>
@@ -142,7 +131,7 @@
                 </ul>
               </article>
               <article class="entry" data-anim="fade-left">
-                <div class="entry__head"><h2 class="entry__org">OPEN SOURCE PROGRAMMING – ITS</h2><span class="entry__date">Feb – Jun 2025</span></div>
+                <div class="entry__head"><h3 class="entry__org">OPEN SOURCE PROGRAMMING – ITS</h3><span class="entry__date">Feb – Jun 2025</span></div>
                 <div class="entry__sub"><span class="entry__role">Teaching Assistant</span></div>
                 <ul class="entry__list">
                   <li>Developed syllabi, lecture materials, and other relevant teaching resources for Data Structure.</li>
@@ -150,7 +139,7 @@
                 </ul>
               </article>
               <article class="entry" data-anim="fade-left">
-                <div class="entry__head"><h2 class="entry__org">STATISTICS COMPUTER COURSE (SCC) – ITS</h2><span class="entry__date">Mar 2025 - Present</span></div>
+                <div class="entry__head"><h3 class="entry__org">STATISTICS COMPUTER COURSE (SCC) – ITS</h3><span class="entry__date">Mar 2025 - Present</span></div>
                 <div class="entry__sub"><span class="entry__role">Curriculum Staff</span></div>
                 <ul class="entry__list">
                   <li>Being Project Officer in SCC Bootcamp.</li>
@@ -192,27 +181,43 @@
             </div>
           </section>
 
-          <!-- AWARD + CERTIFICATIONS (tab) -->
+          <!-- PROJECT — daftar proyek sengaja kosong. Layout baris bernomor (gaya "services"):
+               angka + judul di kiri, deskripsi di kanan, gambar muncul saat hover.
+               Untuk menambah proyek, salin template di bawah ke dalam .svc-list:
+
+               <a class="svc-row" href="LINK_PROYEK" data-anim="fade-left">
+                 <div class="svc-row__head"><span class="svc-row__num">01</span><h3 class="svc-row__title">Judul Proyek</h3></div>
+                 <img class="svc-row__img" src="assets/projects/nama-file.jpg" alt="">
+                 <p class="svc-row__text">Deskripsi singkat proyek.</p>
+               </a>
+          -->
+          <section class="cv-section" id="project" data-title="Project">
+            <div class="label">Project</div>
+            <div class="svc-list"></div>
+            <div class="skills">
+              <span class="text-small text-black fw-500">Technical Skills</span>
+              <div class="tags" data-anim="stagger">
+                <span class="tag">Python</span><span class="tag">R</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Matplotlib</span><span class="tag">Tableau</span><span class="tag">Seaborn</span><span class="tag">ETL</span><span class="tag">ELT</span><span class="tag">Sklearn</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- AWARD — baris bernomor gaya "services" -->
           <section class="cv-section" id="award" data-title="Award">
             <div class="label">Award</div>
-            <div data-tabs>
-              <div class="tabs" role="tablist" aria-label="Awards and certifications">
-                <button class="tab" role="tab" type="button" aria-selected="true" aria-controls="panel-awards" id="tab-awards">Awards</button>
-                <button class="tab" role="tab" type="button" aria-selected="false" aria-controls="panel-certs" id="tab-certs">Certifications and Training</button>
-              </div>
-              <div class="award-panel" id="panel-awards" role="tabpanel" aria-labelledby="tab-awards">
-                <div class="award-grid" data-anim="stagger">
-                  <div class="award"><span class="award__rank">1st</span><div><div class="award__title">Satria Data</div><div class="award__issuer">BELMAWA</div></div></div>
-                  <div class="award"><span class="award__rank">1st Place</span><div><div class="award__title">Infographics</div><div class="award__issuer">4C UB</div></div></div>
-                  <div class="award"><span class="award__rank">★</span><div><div class="award__title">Outstanding Coach</div><div class="award__issuer">AFL</div></div></div>
-                </div>
-              </div>
-              <div class="award-panel" id="panel-certs" role="tabpanel" aria-labelledby="tab-certs" hidden>
-                <div class="award-grid award-grid--2">
-                  <div class="award"><span class="award__rank">01</span><div><div class="award__title">Python for Data Science</div><div class="award__issuer">DQLab</div></div></div>
-                  <div class="award"><span class="award__rank">02</span><div><div class="award__title">Data Structures and Algorithms in Python</div><div class="award__issuer">DataCamp</div></div></div>
-                </div>
-              </div>
+            <div class="svc-list">
+              <div class="svc-row" data-anim="fade-left"><div class="svc-row__head"><span class="svc-row__num">01</span><h3 class="svc-row__title">1st Satria Data</h3></div><p class="svc-row__text">BELMAWA</p></div>
+              <div class="svc-row" data-anim="fade-left"><div class="svc-row__head"><span class="svc-row__num">02</span><h3 class="svc-row__title">1st Place Infographics</h3></div><p class="svc-row__text">4C UB</p></div>
+              <div class="svc-row" data-anim="fade-left"><div class="svc-row__head"><span class="svc-row__num">03</span><h3 class="svc-row__title">Outstanding Coach</h3></div><p class="svc-row__text">AFL</p></div>
+            </div>
+          </section>
+
+          <!-- CERTIFICATION — baris bernomor gaya "services" -->
+          <section class="cv-section" id="certification" data-title="Certification">
+            <div class="label">Certification</div>
+            <div class="svc-list">
+              <div class="svc-row" data-anim="fade-left"><div class="svc-row__head"><span class="svc-row__num">01</span><h3 class="svc-row__title">Python for Data Science</h3></div><p class="svc-row__text">DQLab</p></div>
+              <div class="svc-row" data-anim="fade-left"><div class="svc-row__head"><span class="svc-row__num">02</span><h3 class="svc-row__title">Data Structures and Algorithms in Python</h3></div><p class="svc-row__text">DataCamp</p></div>
             </div>
           </section>
 
