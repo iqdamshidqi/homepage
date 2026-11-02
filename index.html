@@ -1,23 +1,259 @@
-<!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO Meta Tags -->
-    <title>Iqdam Shidqi | Data Science & Portfolio Homepage</title>
-    <meta name="description" content="Personal Portfolio & Data Science Homepage of Iqdam Shidqi. Specializing in Finance Analytics, Marketing Science, Bioinformatics, Data Warehousing, and Web Engineering." />
-    <meta name="author" content="Iqdam Shidqi" />
-    <meta name="keywords" content="Data Science, Portfolio, Finance, Marketing, Bioinformatics, Data Warehouse, Machine Learning, React, Notion UI" />
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-[#FAFAFA] text-[#37352F] antialiased selection:bg-[#E7F3F8] selection:text-[#28456C]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iqdam Shidqi | Portfolio</title>
+  <meta name="description" content="Iqdam Shidqi — Data Science student at Institut Teknologi Sepuluh Nopember, Surabaya. Data analysis, machine learning, and IT solutions.">
+  <meta name="author" content="Iqdam Shidqi">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='800' font-size='28' fill='%23fff'%3EIS%3C/text%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="home">
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo">IQDAM SHIDQI</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+        <span class="nav__toggle-text"><span>Menu</span><span>Close</span></span>
+        <span class="nav__burger" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <nav class="nav__menu" id="nav-menu" aria-label="Main">
+        <a class="nav__link" href="https://github.com/iqdamshidqi" target="_blank" rel="noopener">GitHub</a>
+        <a class="nav__link" href="mailto:iqdamshidqiali@gmail.com">Contact</a>
+        <a class="nav__link nav__cta" href="assets/cv/Iqdam-Shidqi-CV.pdf" download>Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ DINDING FOTO ============
+         Foto dibaca dari assets/photos/photo-01.jpg … photo-12.jpg.
+         Selama file belum ada, tile menampilkan teks dari CV (figcaption). -->
+    <section class="wall" aria-label="Highlights">
+      <div class="wall__row" data-anim="parallax" data-speed="0.09">
+        <div class="wall__track" data-anim="marquee" data-duration="60">
+          <figure class="tile"><img src="assets/photos/photo-01.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Institut Teknologi Sepuluh Nopember</span><span class="tile__title">Data Science Student</span></figcaption></figure>
+          <figure class="tile tile--dark"><img src="assets/photos/photo-02.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Data Structure and Algorithm – ITS</span><span class="tile__title">Teaching Assistant</span></figcaption></figure>
+          <figure class="tile"><img src="assets/photos/photo-03.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">BELMAWA</span><span class="tile__title">1st Satria Data</span></figcaption></figure>
+          <figure class="tile tile--dark"><img src="assets/photos/photo-04.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">SCC Bootcamp – ITS</span><span class="tile__title">Project Officer</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="wall__row" data-anim="parallax" data-speed="0.06">
+        <div class="wall__track" data-anim="marquee" data-duration="60" data-direction="reverse">
+          <figure class="tile tile--dark"><img src="assets/photos/photo-05.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Open Source Programming – ITS</span><span class="tile__title">Teaching Assistant</span></figcaption></figure>
+          <figure class="tile"><img src="assets/photos/photo-06.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Data Science Indonesia</span><span class="tile__title">Volunteer General Affairs Support</span></figcaption></figure>
+          <figure class="tile tile--dark"><img src="assets/photos/photo-07.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">4C UB</span><span class="tile__title">1st Place Infographics</span></figcaption></figure>
+          <figure class="tile"><img src="assets/photos/photo-08.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Statistics Computer Course (SCC) – ITS</span><span class="tile__title">Curriculum Staff</span></figcaption></figure>
+        </div>
+      </div>
+      <div class="wall__row" data-anim="parallax" data-speed="0.03">
+        <div class="wall__track" data-anim="marquee" data-duration="60">
+          <figure class="tile"><img src="assets/photos/photo-09.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Data Analysis Competition – ITS</span><span class="tile__title">Executive Finance</span></figcaption></figure>
+          <figure class="tile tile--dark"><img src="assets/photos/photo-10.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">AFL</span><span class="tile__title">Outstanding Coach</span></figcaption></figure>
+          <figure class="tile"><img src="assets/photos/photo-11.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">SCC Bootcamp – ITS</span><span class="tile__title">Keynote: CRISP-DM for data mining projects</span></figcaption></figure>
+          <figure class="tile tile--dark"><img src="assets/photos/photo-12.jpg" alt="" onerror="this.parentElement.classList.add('is-empty')"><figcaption><span class="tile__kicker">Surabaya, Indonesia</span><span class="tile__title">Cumulative IP 3.49/4.00</span></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RINGKASAN + COUNTER ============ -->
+    <section class="about">
+      <div class="container">
+        <p class="about__text" data-anim="split">I am an active Data Science student at Sepuluh Nopember Institute of Technology with a strong passion for data science, data analysis, machine learning, and IT solutions. My expertise in data analysis is supported by experience as a community service assistant and participant in data science competitions, focusing on data visualization, complex formula application, and machine learning techniques. Additionally, my involvement in SCC and DSI has sharpened my skills in teamwork, event organization, financial oversight, and managing external relations. With my passion for data, I am eager to unlock my potential in Data Science, where I can further develop my technical expertise and provide valuable insights.</p>
+
+        <!-- Angka dihitung dari CV: 3 campus projects, 3 awards, 2 certifications -->
+        <div class="stats" data-anim="stagger">
+          <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">project</div></div>
+          <div class="stats__item"><div class="counter" data-anim="count" data-to="3">0</div><div class="stats__label">award</div></div>
+          <div class="stats__item"><div class="counter" data-anim="count" data-to="2">0</div><div class="stats__label">certification</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTERESTS (reel: kotak membesar saat discroll) ============ -->
+    <section class="reel" aria-label="Interests">
+      <div class="reel__inner">
+        <div class="reel__box" data-anim="reel">
+          <div class="reel__content">
+            <div class="label">Interests</div>
+            <ul class="reel__list">
+              <li>Data Science</li><li>Data Analytics</li><li>Machine Learning</li><li>Business</li><li>SDGs</li><li>Economics</li><li>Renewable Energy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROFIL + KONTEN CV ============ -->
+    <section class="profile">
+      <div class="container profile__grid">
+
+        <!-- Sidebar: foto profil dari assets/photos/profile.jpg (inisial kalau belum ada) -->
+        <aside class="profile__side" data-anim="fade-left">
+          <div class="avatar-lg"><img src="assets/photos/profile.jpg" alt="Iqdam Shidqi" onerror="this.parentElement.classList.add('is-empty')"><span aria-hidden="true">IS</span></div>
+          <div>
+            <div class="profile__name">Iqdam Shidqi</div>
+            <div class="profile__role">Analyst</div>
+          </div>
+          <div class="label profile__current" aria-live="polite"><span data-current-section>Education</span></div>
+        </aside>
+
+        <div class="profile__main">
+
+          <!-- EDUCATION -->
+          <section class="cv-section" id="education" data-title="Education">
+            <div class="label">Education</div>
+            <div class="entries">
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">INSTITUT TEKNOLOGI SEPULUH NOPEMBER</h2><span class="entry__meta">Surabaya, Indonesia</span></div>
+                <div class="entry__sub"><span class="entry__role">Data Science Student</span><span class="entry__date">Expected May 2027</span></div>
+                <div class="facts" data-anim="stagger">
+                  <div class="fact"><span class="text-small">Major / Minor</span><span class="fact__value">Major in Computational Science and Data Science; Minor in Business and Management</span></div>
+                  <div class="fact"><span class="text-small">Cumulative IP</span><span class="fact__value">3.49/4.00</span></div>
+                  <div class="fact"><span class="text-small">Relevant Areas</span><span class="fact__value">Data Analysis, Data Science, Statistics.</span></div>
+                </div>
+              </article>
+            </div>
+            <div class="skills">
+              <span class="text-small text-black fw-500">Technical Skills</span>
+              <div class="tags" data-anim="stagger">
+                <span class="tag">Python</span><span class="tag">R</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Matplotlib</span><span class="tag">Tableau</span><span class="tag">Seaborn</span><span class="tag">ETL</span><span class="tag">ELT</span><span class="tag">Sklearn</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- PROJECT (Campus Projects di CV) -->
+          <section class="cv-section" id="project" data-title="Project">
+            <div class="label">Project</div>
+            <div class="entries">
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">DATA STRUCTURE AND ALGORITHM – ITS</h2><span class="entry__date">July 2025 - Present</span></div>
+                <div class="entry__sub"><span class="entry__role">Teaching Assistant</span></div>
+                <ul class="entry__list">
+                  <li>Developed syllabi, lecture materials, and other relevant teaching resources for open-source programming.</li>
+                  <li>Assisted students in practical sessions, ensuring their proper understanding and application of open-source programming concepts.</li>
+                </ul>
+              </article>
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">OPEN SOURCE PROGRAMMING – ITS</h2><span class="entry__date">Feb – Jun 2025</span></div>
+                <div class="entry__sub"><span class="entry__role">Teaching Assistant</span></div>
+                <ul class="entry__list">
+                  <li>Developed syllabi, lecture materials, and other relevant teaching resources for Data Structure.</li>
+                  <li>Assisted students in practical sessions, ensuring their proper understanding and application of Data Structure and Algorithm concepts.</li>
+                </ul>
+              </article>
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">STATISTICS COMPUTER COURSE (SCC) – ITS</h2><span class="entry__date">Mar 2025 - Present</span></div>
+                <div class="entry__sub"><span class="entry__role">Curriculum Staff</span></div>
+                <ul class="entry__list">
+                  <li>Being Project Officer in SCC Bootcamp.</li>
+                  <li>Created syllabi and other relevant teaching materials for Data Mining and Machine Learning.</li>
+                  <li>Mentored boot camp participants, ensuring they properly understood and applied data mining concepts..</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <!-- ACTIVITIES -->
+          <section class="cv-section" id="activities" data-title="Activities">
+            <div class="label">Activities</div>
+            <div class="entries">
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">DATA SCIENCE INDONESIA</h2><span class="entry__meta">Jakarta, Indonesia</span></div>
+                <div class="entry__sub"><span class="entry__role">Volunteer General Affairs Support</span><span class="entry__date">Nov 2024 – Present</span></div>
+                <ul class="entry__list">
+                  <li>Handled administrative planning, including preparing Minutes of Meeting (MoM), Memorandum of Understanding (MoU), and Letter of Agreement (LoA).</li>
+                  <li>Assisted in ensuring compliance with legal documentation and improving operational efficiency.</li>
+                </ul>
+              </article>
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">SCC BOOTCAMP – ITS</h2><span class="entry__date">May 2025 - Present</span></div>
+                <div class="entry__sub"><span class="entry__role">Project Officer</span></div>
+                <ul class="entry__list">
+                  <li>Designed and developed the end-to-end program curriculum for a Data Science Bootcamp.</li>
+                  <li>Delivered a keynote session as a speaker on the practical application of the CRISP-DM framework for data mining projects.</li>
+                </ul>
+              </article>
+              <article class="entry" data-anim="fade-left">
+                <div class="entry__head"><h2 class="entry__org">DATA ANALYSIS COMPETITION – ITS</h2><span class="entry__date">Maret 2025 - Present</span></div>
+                <div class="entry__sub"><span class="entry__role">Executive Finance</span></div>
+                <ul class="entry__list">
+                  <li>Ensured transparency and financial reporting for informed decision-making processes.</li>
+                  <li>Developed a budget plan with an estimated income of approximately IDR 150,000,000++</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <!-- AWARD + CERTIFICATIONS (tab) -->
+          <section class="cv-section" id="award" data-title="Award">
+            <div class="label">Award</div>
+            <div data-tabs>
+              <div class="tabs" role="tablist" aria-label="Awards and certifications">
+                <button class="tab" role="tab" type="button" aria-selected="true" aria-controls="panel-awards" id="tab-awards">Awards</button>
+                <button class="tab" role="tab" type="button" aria-selected="false" aria-controls="panel-certs" id="tab-certs">Certifications and Training</button>
+              </div>
+              <div class="award-panel" id="panel-awards" role="tabpanel" aria-labelledby="tab-awards">
+                <div class="award-grid" data-anim="stagger">
+                  <div class="award"><span class="award__rank">1st</span><div><div class="award__title">Satria Data</div><div class="award__issuer">BELMAWA</div></div></div>
+                  <div class="award"><span class="award__rank">1st Place</span><div><div class="award__title">Infographics</div><div class="award__issuer">4C UB</div></div></div>
+                  <div class="award"><span class="award__rank">★</span><div><div class="award__title">Outstanding Coach</div><div class="award__issuer">AFL</div></div></div>
+                </div>
+              </div>
+              <div class="award-panel" id="panel-certs" role="tabpanel" aria-labelledby="tab-certs" hidden>
+                <div class="award-grid award-grid--2">
+                  <div class="award"><span class="award__rank">01</span><div><div class="award__title">Python for Data Science</div><div class="award__issuer">DQLab</div></div></div>
+                  <div class="award"><span class="award__rank">02</span><div><div class="award__title">Data Structures and Algorithms in Python</div><div class="award__issuer">DataCamp</div></div></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="container" style="display:flex;flex-direction:column;gap:var(--gap-regular)">
+      <div class="footer__top">
+        <div class="footer__contact">
+          <span class="text-small text-light">Contact</span>
+          <a href="mailto:iqdamshidqiali@gmail.com" class="h5 text-white">iqdamshidqiali@gmail.com</a>
+          <span class="text-light">Surabaya, Indonesia</span>
+        </div>
+        <div class="footer__menus">
+          <nav class="footer__links" aria-label="Pages">
+            <span class="text-small text-light">Pages</span>
+            <a href="#home" class="footer__link"><span>Home</span></a>
+            <a href="#education" class="footer__link"><span>Education</span></a>
+            <a href="#project" class="footer__link"><span>Project</span></a>
+            <a href="#award" class="footer__link"><span>Award</span></a>
+          </nav>
+          <nav class="footer__links" aria-label="Social media">
+            <span class="text-small text-light">Social Media</span>
+            <a href="https://linked.in/iqdam-shidqi" class="footer__link" target="_blank" rel="noopener"><span>LinkedIn</span></a>
+            <a href="https://github.com/iqdamshidqi" class="footer__link" target="_blank" rel="noopener"><span>GitHub</span></a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__giant" aria-hidden="true">IQDAM SHIDQI</div>
+      <div class="footer__bottom text-small text-light">
+        <span>© 2026 Iqdam Shidqi</span>
+        <a href="assets/cv/Iqdam-Shidqi-CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/animations.js"></script>
+  <script src="js/site.js"></script>
+</body>
 </html>

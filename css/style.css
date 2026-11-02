@@ -1,0 +1,155 @@
+/* =========================================================
+   Portfolio Iqdam Shidqi — gaya khusus halaman
+   Token, base, dan komponen dasar ada di tokens.css.
+   Urutan section mengikuti "layout html.pdf":
+   nav → dinding foto → ringkasan → counter → interests (reel)
+   → sidebar profil + Education / Project / Activities / Award → footer
+   ========================================================= */
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--gap-ultra-small); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { overflow-x: hidden; }
+
+/* ---------- Navbar (di atas latar putih) ---------- */
+.nav__logo { color: var(--primary); }
+
+/* ---------- Dinding foto ---------- */
+.wall { padding: 88px 0 var(--gap-regular); display: flex; flex-direction: column; gap: var(--gap-ultra-small); overflow: hidden; }
+.wall__row { will-change: transform; }
+.wall__track { display: flex; gap: var(--gap-ultra-small); width: max-content; }
+
+.tile {
+  position: relative; margin: 0; flex: none;
+  width: clamp(240px, 34vw, 500px); aspect-ratio: 7 / 3;
+  background: var(--white-smoke); overflow: hidden;
+}
+.tile img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(100%); transform: scale(1.04);
+  transition: filter var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+.tile:hover img { filter: grayscale(0%); transform: scale(1); }
+/* Teks CV hanya tampil kalau foto belum ada di assets/photos/ */
+.tile figcaption {
+  position: absolute; inset: 0; padding: var(--gap-tiny);
+  display: none; flex-direction: column; justify-content: space-between;
+}
+.tile.is-empty img { display: none; }
+.tile.is-empty figcaption { display: flex; }
+.tile__kicker { font-size: var(--small); line-height: var(--small-lh); font-weight: 500; text-transform: uppercase; color: var(--muted); }
+.tile__title { font: 700 clamp(18px, 1.8vw, 26px) / 1.25 var(--font-display); color: var(--primary); }
+.tile--dark { background: var(--primary); }
+.tile--dark .tile__title { color: var(--white); }
+.tile--dark .tile__kicker { color: var(--light-white); }
+
+/* ---------- Ringkasan + counter ---------- */
+.about { padding: var(--gap-regular) 0 var(--gap-huge); }
+.about__text {
+  max-width: 1100px;
+  font: 600 clamp(22px, 2.5vw, 34px) / 1.4 var(--font-display); color: var(--primary);
+}
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-small); max-width: 900px; margin: var(--gap-huge) auto 0; text-align: center; }
+.stats__item { display: flex; flex-direction: column; gap: var(--gap-nano); }
+.stats__label { font-size: var(--text); color: var(--muted); }
+@media (max-width: 479px) { .stats { grid-template-columns: 1fr; gap: var(--gap-base); } }
+
+/* ---------- Interests (reel) ---------- */
+.reel { position: relative; height: 100vh; overflow: hidden; }
+.reel__inner { position: sticky; top: 0; height: 100%; display: flex; align-items: center; justify-content: center; }
+.reel__box {
+  width: 20%; height: 20%; max-width: 92%; max-height: 80%;
+  background: var(--primary); color: var(--white); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.reel__content { width: min(1100px, 86vw); flex: none; padding: var(--gap-base) var(--gap-ultra-small); display: flex; flex-direction: column; gap: var(--gap-base); text-align: center; }
+.reel__content .label { color: var(--white); }
+.reel__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap-micro) var(--gap-small); }
+.reel__list li { font: 800 clamp(24px, 3.4vw, 48px) / 1.2 var(--font-display); color: var(--white); }
+.reel__list li:nth-child(even) { color: transparent; -webkit-text-stroke: 1px var(--white); }
+@media (max-width: 767px) { .reel { height: 80vh; } }
+
+/* ---------- Profil + konten CV ---------- */
+.profile { padding: var(--gap-extra-large) 0 var(--gap-huge); }
+.profile__grid { display: grid; grid-template-columns: 240px 1fr; gap: var(--gap-base); align-items: start; }
+
+.profile__side { position: sticky; top: var(--gap-base); display: flex; flex-direction: column; gap: var(--gap-micro); }
+.avatar-lg {
+  width: 150px; height: 150px; border-radius: 50%; overflow: hidden; margin-bottom: var(--gap-micro);
+  background: var(--primary); display: flex; align-items: center; justify-content: center;
+}
+.avatar-lg img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-lg span { display: none; font: 800 40px var(--font-display); color: var(--white); letter-spacing: 0.02em; }
+.avatar-lg.is-empty img { display: none; }
+.avatar-lg.is-empty span { display: block; }
+.profile__name { font: 700 var(--h5) / var(--h5-lh) var(--font-display); color: var(--primary); text-transform: uppercase; }
+.profile__role { font-size: var(--small); color: var(--muted); margin-top: -6px; }
+.profile__current { margin-top: var(--gap-micro); }
+.profile__current span { display: inline-block; transition: opacity var(--dur-fast); }
+
+.profile__main { border-left: 1px solid var(--light-white); padding-left: var(--gap-base); display: flex; flex-direction: column; }
+.cv-section { padding: var(--gap-base) 0 var(--gap-regular); display: flex; flex-direction: column; gap: var(--gap-base); }
+.cv-section:first-child { padding-top: 0; }
+.cv-section + .cv-section { border-top: 1px solid var(--white-smoke); padding-top: var(--gap-regular); }
+
+/* Entri riwayat (pendidikan, proyek, aktivitas) */
+.entries { display: flex; flex-direction: column; }
+.entry { display: flex; flex-direction: column; gap: var(--gap-micro); padding: var(--gap-small) 0; border-top: 1px solid var(--white-smoke); }
+.entry:first-child { border-top: 0; padding-top: 0; }
+.entry__head, .entry__sub { display: flex; justify-content: space-between; align-items: baseline; gap: var(--gap-micro) var(--gap-ultra-small); flex-wrap: wrap; }
+.entry__org { font: 700 var(--h6) / var(--h6-lh) var(--font-display); color: var(--primary); }
+.entry__meta { font-size: var(--small); color: var(--muted); }
+.entry__role { font-weight: 500; color: var(--primary); }
+.entry__date { font-size: var(--small); font-weight: 500; color: var(--primary); white-space: nowrap; }
+.entry__list { margin: var(--gap-nano) 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--gap-nano); }
+.entry__list li { position: relative; padding-left: var(--gap-ultra-small); }
+.entry__list li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 7px; height: 7px; background: var(--primary); }
+
+/* Detail pendidikan */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-ultra-small); margin-top: var(--gap-micro); }
+.fact { border: 1px solid var(--border-light); padding: var(--gap-tiny); display: flex; flex-direction: column; gap: var(--gap-nano); }
+.fact__value { font: 700 var(--h6) / 1.4 var(--font-display); color: var(--primary); }
+@media (max-width: 991px) { .facts { grid-template-columns: 1fr; } }
+
+/* Tag skill */
+.tags { display: flex; flex-wrap: wrap; gap: var(--gap-micro); }
+.tag { padding: 8px var(--gap-tiny); border: 1px solid var(--primary); font: 600 var(--small) / 1 var(--font-display); color: var(--primary); transition: background-color var(--dur-base), color var(--dur-base); }
+.tag:hover { background: var(--primary); color: var(--white); }
+.skills { display: flex; flex-direction: column; gap: var(--gap-tiny); margin-top: var(--gap-ultra-small); }
+
+/* Award & sertifikasi */
+.award-panel { margin-top: var(--gap-ultra-small); }
+.award-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.award-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.award {
+  min-height: 240px; padding: var(--gap-tiny); border: 1px solid var(--border-light);
+  display: flex; flex-direction: column; justify-content: space-between; gap: var(--gap-base);
+  transition: background-color var(--dur-base), border-color var(--dur-base);
+}
+.award:nth-child(even) { background: var(--white-smoke); }
+.award__rank { font: 800 clamp(40px, 4vw, 56px) / 1 var(--font-display); color: var(--primary); }
+.award__title { font: 700 var(--h6) / 1.4 var(--font-display); color: var(--primary); }
+.award__issuer { font-size: var(--small); color: var(--muted); text-transform: uppercase; font-weight: 500; }
+.award:hover { background: var(--primary); border-color: var(--primary); }
+.award:hover .award__rank, .award:hover .award__title { color: var(--white); }
+.award:hover .award__issuer { color: var(--light-white); }
+@media (max-width: 991px) { .award-grid, .award-grid--2 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 479px) { .award-grid, .award-grid--2 { grid-template-columns: 1fr; } .award { min-height: 180px; } }
+
+@media (max-width: 767px) {
+  .profile__grid { grid-template-columns: 1fr; gap: var(--gap-regular); }
+  .profile__side { position: static; flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--gap-ultra-small); }
+  .avatar-lg { width: 96px; height: 96px; margin: 0; }
+  .avatar-lg span { font-size: 28px; }
+  .profile__current { display: none; }
+  .profile__main { border-left: 0; padding-left: 0; }
+}
+
+/* ---------- Footer ---------- */
+.footer__top { display: flex; justify-content: space-between; gap: var(--gap-regular); flex-wrap: wrap; }
+.footer__contact { display: flex; flex-direction: column; gap: var(--gap-tiny); max-width: 380px; }
+.footer__contact a { color: var(--white); }
+.footer__menus { display: flex; gap: var(--gap-extra-large); flex-wrap: wrap; }
+.footer__giant { font-size: clamp(40px, 12.2vw, 190px); }
+.footer__bottom { display: flex; justify-content: space-between; gap: var(--gap-tiny); flex-wrap: wrap; border-top: 1px solid #ffffff1f; padding-top: var(--gap-ultra-small); }
+.footer__bottom a { color: var(--light-white); transition: color var(--dur-fast); }
+.footer__bottom a:hover { color: var(--white); }
